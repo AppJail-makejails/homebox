@@ -9,7 +9,7 @@ CMD corepack enable
 CMD (cd /homebox/src/frontend; env CI=true pnpm install --frozen-lockfile --shamefully-hoist)
 CMD (cd /homebox/src/frontend; env CI=true pnpm build)
 CMD (cd /homebox/src/backend; go123 mod download)
-CMD (cd /homebox/src/backend; cp -a /homebox/src/frontend/.output/public /homebox/src/backend/app/api/static/public)
+CMD (cd /homebox/src/backend; cp -a /homebox/src/frontend/.output/public/ /homebox/src/backend/app/api/static/public)
 CMD cd /homebox/src/backend; BUILD_TIME=`env TZ=UTC date +"%Y%m%dT%H%M%SZ"`; COMMIT=`git rev-parse HEAD`; VERSION="0.0.0"; \
         env CGO_ENABLED=0 GOOS=freebsd go123 build \
             -ldflags "-s -w -X main.commit=${COMMIT} -X main.buildTime=${BUILD_TIME} -X main.version=${VERSION}" \
