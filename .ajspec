@@ -1,0 +1,17 @@
+tags+: 13.5
+13.5.arch: amd64
+13.5.name: "homebox"
+13.5.timestamp.amd64: 1745349937
+13.5.sum.amd64: de2c7deb02cb2521f7db2852fe042a09c42c657b660f4ad86ee381682c3bd510
+13.5.size.amd64: 425145904
+13.5.source.amd64: "https://images.all101bsd.download/homebox/13.5-amd64-image.appjail"
+13.5.source.amd64+: "http://appjail.hpc.at/homebox/13.5-amd64-image.appjail"
+tags+: 14.2
+14.2.arch: amd64
+14.2.name: "homebox"
+14.2.timestamp.amd64: 1745350361
+14.2.sum.amd64: eec5baa07de4dd8c6ceb5eee103ee18e81e6559b8d2bee01f6466c20e2bb77f7
+14.2.size.amd64: 424870995
+14.2.source.amd64: "https://images.all101bsd.download/homebox/14.2-amd64-image.appjail"
+14.2.source.amd64+: "http://appjail.hpc.at/homebox/14.2-amd64-image.appjail"
+maintenance: "This image is uploading, please wait a moment and try again. If you are importing this image using a Makejail that has the '--<name>_ajspec' argument, you can use the 'reproduce' method to use 'appjail-reproduce'. See 'appjail-image(5)' for details."
