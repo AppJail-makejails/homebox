@@ -1,0 +1,35 @@
+INCLUDE options/options.makejail
+
+ARG homebox_tag=13.5
+ARG homebox_ajspec=gh+AppJail-makejails/homebox
+
+FROM --entrypoint "${homebox_ajspec}" homebox:${homebox_tag}
+
+STOP
+
+STAGE start
+
+USER homebox
+WORKDIR /homebox
+
+ENV HBOX_MODE=production
+ENV HBOX_STORAGE_DATA=/homebox/data/
+ENV HBOX_DATABASE_SQLITE_PATH=/homebox/data/homebox.db?_pragma=busy_timeout=2000&_pragma=journal_mode=WAL&_fk=1&_time_format=sqlite
+
+RUN daemon \
+        -t "Continuation of HomeBox the inventory and organization system built for the Home User" \
+        -p /homebox/.pid \
+        -o /homebox/.log \
+            ./app/api /homebox/data/config.yml
+
+STAGE custom:homebox_status
+
+CMD if [ -f "/homebox/.pid" ]; then \
+        top -ap `head -1 /homebox/.pid`; \
+    fi
+
+STAGE custom:homebox_log
+
+CMD if [ -f "/homebox/.log" ]; then \
+        less -R /homebox/.log; \
+    fi

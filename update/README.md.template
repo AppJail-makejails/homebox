@@ -22,7 +22,7 @@ appjail start homebox
 ### Arguments
 
 * `homebox_ajspec` (default: `gh+AppJail-makejails/homebox`): Entry point where the `appjail-ajspec(5)` file is located.
-* `homebox_tag` (default: `13.5`): see [#tags](#tags).
+* `homebox_tag` (default: `%%TAG1%%`): see [#tags](#tags).
 
 ### Check current status
 
@@ -50,5 +50,5 @@ appjail run -s homebox_log homebox
 
 | Tag           | Arch    | Version            | Type   |
 | ------------- | --------| ------------------ | ------ |
-| `13.5`    | `amd64` | `13.5-RELEASE` | `thin` |
-| `14.2`    | `amd64` | `14.2-RELEASE` | `thin` |
+| `%%TAG1%%`    | `amd64` | `%%TAG1%%-RELEASE` | `thin` |
+| `%%TAG2%%`    | `amd64` | `%%TAG2%%-RELEASE` | `thin` |

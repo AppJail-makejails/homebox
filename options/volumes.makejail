@@ -1,0 +1,1 @@
+OPTION volume=homebox-data mountpoint:/homebox/data owner:1001 group:1001
