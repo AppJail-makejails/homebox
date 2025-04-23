@@ -16,6 +16,7 @@ CMD cd /homebox/src/backend; BUILD_TIME=`env TZ=UTC date +"%Y%m%dT%H%M%SZ"`; COM
             -o /homebox/app/api \
             -v ./app/api/*.go
 CMD rm -rf /homebox/src
+CMD rm -rf /root/.cache /root/.config /root/.local /root/go
 
 CMD pw useradd -n homebox -d /homebox -c "Continuation of HomeBox the inventory and organization system built for the Home User"
 CMD chown -R homebox:homebox /homebox
