@@ -1,16 +1,17 @@
 tags+: 13.5
 13.5.arch: amd64
 13.5.name: "homebox"
-13.5.timestamp.amd64: 1745436355
-13.5.sum.amd64: dd92a5aca52dab702aba090a370586de09782c394d2e2240cc453fe29f41cd2e
-13.5.size.amd64: 45468962
+13.5.timestamp.amd64: 1747174446
+13.5.sum.amd64: bf7443d66510ea980aa481e39bdae791cc671f5be30007b44712195021c5929b
+13.5.size.amd64: 45647845
 13.5.source.amd64: "https://images.all101bsd.download/homebox/13.5-amd64-image.appjail"
 13.5.source.amd64+: "http://appjail.hpc.at/homebox/13.5-amd64-image.appjail"
 tags+: 14.2
 14.2.arch: amd64
 14.2.name: "homebox"
-14.2.timestamp.amd64: 1745436770
-14.2.sum.amd64: c58c73a5189524ff519b1394d97f6341c48442f2037beb2c1299d1a7250a1ab5
-14.2.size.amd64: 45141449
+14.2.timestamp.amd64: 1747174993
+14.2.sum.amd64: 2bc97592b1cc97dc6f65bb4380d433d0b87801dd631019ba137e78f955106bef
+14.2.size.amd64: 45174206
 14.2.source.amd64: "https://images.all101bsd.download/homebox/14.2-amd64-image.appjail"
 14.2.source.amd64+: "http://appjail.hpc.at/homebox/14.2-amd64-image.appjail"
+maintenance: "This image is uploading, please wait a moment and try again. If you are importing this image using a Makejail that has the '--<name>_ajspec' argument, you can use the 'reproduce' method to use 'appjail-reproduce'. See 'appjail-image(5)' for details."
