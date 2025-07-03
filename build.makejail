@@ -1,17 +1,17 @@
 INCLUDE options/options.makejail
 INCLUDE options/volumes.makejail
 
-PKG npm go123 git-tiny
+PKG npm go124 git-tiny
 
 CMD mkdir -p /homebox
 CMD git clone --depth 1 https://github.com/sysadminsmedia/homebox.git /homebox/src
 CMD corepack enable
 CMD (cd /homebox/src/frontend; env CI=true pnpm install --frozen-lockfile --shamefully-hoist)
 CMD (cd /homebox/src/frontend; env CI=true pnpm build)
-CMD (cd /homebox/src/backend; go123 mod download)
+CMD (cd /homebox/src/backend; go124 mod download)
 CMD (cd /homebox/src/backend; cp -a /homebox/src/frontend/.output/public/ /homebox/src/backend/app/api/static/public)
 CMD cd /homebox/src/backend; BUILD_TIME=`env TZ=UTC date +"%Y%m%dT%H%M%SZ"`; COMMIT=`git rev-parse HEAD`; VERSION=; \
-        env CGO_ENABLED=0 GOOS=freebsd go123 build \
+        env CGO_ENABLED=0 GOOS=freebsd go124 build \
             -ldflags "-s -w -X main.commit=${COMMIT} -X main.buildTime=${BUILD_TIME} -X main.version=${VERSION}" \
             -o /homebox/app/api \
             -v ./app/api/*.go
@@ -21,6 +21,6 @@ CMD rm -rf /root/.cache /root/.config /root/.local /root/go
 CMD pw useradd -n homebox -d /homebox -c "Continuation of HomeBox the inventory and organization system built for the Home User"
 CMD chown -R homebox:homebox /homebox
 
-PKG --remove npm go123 git-tiny
+PKG --remove npm go124 git-tiny
 PKG --autoremove
 PKG --clean
