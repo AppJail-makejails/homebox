@@ -11,7 +11,7 @@ CMD (cd /homebox/src/frontend; env CI=true pnpm build)
 CMD (cd /homebox/src/backend; go124 mod download)
 CMD (cd /homebox/src/backend; cp -a /homebox/src/frontend/.output/public/ /homebox/src/backend/app/api/static/public)
 CMD cd /homebox/src/backend; BUILD_TIME=`env TZ=UTC date +"%Y%m%dT%H%M%SZ"`; COMMIT=`git rev-parse HEAD`; VERSION=; \
-        env CGO_ENABLED=0 GOOS=freebsd go124 build \
+        go124 build \
             -ldflags "-s -w -X main.commit=${COMMIT} -X main.buildTime=${BUILD_TIME} -X main.version=${VERSION}" \
             -o /homebox/app/api \
             -v ./app/api/*.go
