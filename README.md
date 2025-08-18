@@ -42,9 +42,9 @@ appjail run -s homebox_log homebox
 
 ### Volumes
 
-| Name           | Owner | Group | Perm | Type | Mountpoint       |
-| -------------- | ----- | ----- | ---- | ---- | ---------------- |
-| homebox-data   | 1001  | 1001  |  -   |  -   | /homebox/data    |
+| Name       | Owner | Group | Perm  | Type | Mountpoint       |
+| ---------- | ----- | ----- | ----- | ---- | ---------------- |
+| homebox-db | 837   | 837   | 0700  |  -   | /var/db/homebox  |
 
 ## Tags
 

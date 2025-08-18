@@ -1,1 +1,1 @@
-OPTION volume=homebox-data mountpoint:/homebox/data owner:1001 group:1001
+OPTION volume=homebox-db mountpoint:/var/db/homebox owner:837 group:837 perm:0700

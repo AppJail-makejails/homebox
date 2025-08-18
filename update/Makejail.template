@@ -9,27 +9,25 @@ STOP
 
 STAGE start
 
-USER homebox
-WORKDIR /homebox
-
 ENV HBOX_MODE=production
-ENV HBOX_STORAGE_DATA=/homebox/data/
-ENV HBOX_DATABASE_SQLITE_PATH=/homebox/data/homebox.db?_pragma=busy_timeout=2000&_pragma=journal_mode=WAL&_fk=1&_time_format=sqlite
+ENV HBOX_STORAGE_CONN_STRING=file:///var/db/homebox/
+ENV HBOX_DATABASE_SQLITE_PATH=/var/db/homebox/homebox.db?_pragma=busy_timeout=999&_pragma=journal_mode=WAL&_fk=1&_time_format=sqlite
 
 RUN daemon \
-        -t "Continuation of HomeBox the inventory and organization system built for the Home User" \
-        -p /homebox/.pid \
-        -o /homebox/.log \
-            ./app/api /homebox/data/config.yml
+        -u homebox \
+        -t "Inventory and organization system built for the Home User" \
+        -p /var/run/homebox.pid \
+        -o /var/log/homebox.log \
+            homebox
 
 STAGE custom:homebox_status
 
-CMD if [ -f "/homebox/.pid" ]; then \
-        top -ap `head -1 /homebox/.pid`; \
+CMD if [ -f "/var/run/homebox.pid" ]; then \
+        top -ap `head -1 /var/run/homebox.pid`; \
     fi
 
 STAGE custom:homebox_log
 
-CMD if [ -f "/homebox/.log" ]; then \
-        less -R /homebox/.log; \
+CMD if [ -f "/var/log/homebox.log" ]; then \
+        less -R /var/log/homebox.log; \
     fi
