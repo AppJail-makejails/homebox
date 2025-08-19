@@ -10,7 +10,7 @@ STOP
 STAGE start
 
 ENV HBOX_MODE=production
-ENV HBOX_STORAGE_CONN_STRING=file:///var/db/homebox/
+ENV HBOX_STORAGE_CONN_STRING=file:///var/db/homebox/?no_tmp_dir=true
 ENV HBOX_DATABASE_SQLITE_PATH=/var/db/homebox/homebox.db?_pragma=busy_timeout=999&_pragma=journal_mode=WAL&_fk=1&_time_format=sqlite
 
 RUN daemon \
