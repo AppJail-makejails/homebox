@@ -1,33 +1,5 @@
-INCLUDE options/options.makejail
+ARG homebox_from=ghcr.io/appjail-makejails/homebox
+ARG homebox_tag=latest
 
-ARG homebox_tag=14.3
-ARG homebox_ajspec=gh+AppJail-makejails/homebox
-
-FROM --entrypoint "${homebox_ajspec}" homebox:${homebox_tag}
-
-STOP
-
-STAGE start
-
-ENV HBOX_MODE=production
-ENV HBOX_STORAGE_CONN_STRING=file:///var/db/homebox/?no_tmp_dir=true
-ENV HBOX_DATABASE_SQLITE_PATH=/var/db/homebox/homebox.db?_pragma=busy_timeout=999&_pragma=journal_mode=WAL&_fk=1&_time_format=sqlite
-
-RUN daemon \
-        -u homebox \
-        -t "Inventory and organization system built for the Home User" \
-        -p /var/run/homebox.pid \
-        -o /var/log/homebox.log \
-            homebox
-
-STAGE custom:homebox_status
-
-CMD if [ -f "/var/run/homebox.pid" ]; then \
-        top -ap `head -1 /var/run/homebox.pid`; \
-    fi
-
-STAGE custom:homebox_log
-
-CMD if [ -f "/var/log/homebox.log" ]; then \
-        less -R /var/log/homebox.log; \
-    fi
+OPTION overwrite=force
+OPTION from=${homebox_from}:${homebox_tag}
