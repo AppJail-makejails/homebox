@@ -42,7 +42,7 @@ services:
     name: homebox
     makejail: gh+AppJail-makejails/homebox
     options:
-      - container: 'boot args:--pull'
+      - container: 'args:--pull'
       - expose: '3100:7745'
     volumes:
       - data: /data

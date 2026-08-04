@@ -1,5 +1,6 @@
 ARG homebox_from=ghcr.io/appjail-makejails/homebox
 ARG homebox_tag=latest
 
+OPTION container=boot
 OPTION overwrite=force
 OPTION from=${homebox_from}:${homebox_tag}
