@@ -6,6 +6,6 @@ set -e
 
 create_user
 
-chown -R noroot:noroot /data
+change_owner /data
 
 su-exec noroot homebox "$@"
