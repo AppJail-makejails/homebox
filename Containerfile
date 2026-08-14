@@ -14,7 +14,7 @@ LABEL org.opencontainers.image.title="HomeBox" \
 RUN set -xe; \
     \
     pkg update; \
-    pkg install -U homebox; \
+    pkg install homebox; \
     \
     if [ -z "${NO_PKGCLEAN}" ]; then \
         pkg clean -a; \
